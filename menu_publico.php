@@ -53,6 +53,16 @@ $totalLinhas = $listaTipos->num_rows;
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             Tipos <span class="caret"></span>
                         </a>
+                        <ul class="dropdown-menu">
+                            <!-- Abre estrutura de repetição -->
+                            <?php do { ?>
+                                <li>
+                                    <a href="produtos_por_tipo.php?id_tipo=<?php echo $linhaTipo['id_tipo']?>">
+                                    <?php echo $linhaTipo['rotulo_tipo']?>
+                                </a>
+                                </li>
+                                <?php } while ($linhaTipo=$listaTipos -> fetch_assoc());?>
+                        </ul>
                     </li>
                     <li></li>
                     <li></li>
