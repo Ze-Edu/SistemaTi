@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+.fundofixo{
+    background: url(../images/churras-carne.jpg) no-repeat fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+

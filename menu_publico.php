@@ -1,6 +1,6 @@
 <?php
 // incluindo arquivo de cenexão
-include('connections/conexao.php');
+include('connections/conn.php');
 
 // consulta para trazer os dados
 
@@ -11,9 +11,9 @@ $queryTipos = "SELECT *
                 ORDER BY ".$ordenar."";*/
 
 $consulta = "select * from tbtipos order by rotulo_tipo";
-$listaTipos = $conexao->query($consulta);
+$listaTipos = $conn->query($consulta);
 $linhaTipo = $listaTipos->fetch_assoc();
-$totalLinhas = $listaTipos->num_rows;
+$totalLinhas = $listaTipos-> num_rows;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -57,15 +57,43 @@ $totalLinhas = $listaTipos->num_rows;
                             <!-- Abre estrutura de repetição -->
                             <?php do { ?>
                                 <li>
-                                    <a href="produtos_por_tipo.php?id_tipo=<?php echo $linhaTipo['id_tipo']?>">
-                                    <?php echo $linhaTipo['rotulo_tipo']?>
-                                </a>
+                                <a href="produtos_por_tipo.php?id_tipo=<?php echo $linhaTipo['id_tipo'] ?>">
+                                        <?php echo $linhaTipo['rotulo_tipo'] ?> 
+                                    </a>
                                 </li>
-                                <?php } while ($linhaTipo=$listaTipos -> fetch_assoc());?>
+                                <?php } while ($linhaTipo=$listaTipos->fetch_assoc());?>
                         </ul>
+                    </li><!-- Fecha Dropdown -->
+                    <li><a href="index.php#contato">Contato</a></li>
+                    <li>
+                        <!-- Formulario de busca -->
+                        <form action="produtos_busca.php"
+                        method="get"
+                        name="form_busca"
+                        id="form_busca"
+                        class="navbar-form navbar-left"
+                        role="search"> 
+                        <div class="form-group">
+                            <div class="input-group">
+                                    <input type="text" class="form-control"
+                                    placeholder="Busca Produto"
+                                    name="buscar"
+                                    id="buscar"
+                                    size="9"required>
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                            </div>
+                        </div><!-- fecha input group -->
+                    </form>
                     </li>
-                    <li></li>
-                    <li></li>
+                    <li class="active">
+                        <a href="admin/index.php">
+                        <span class="glyphicon glyphicon-user">Admin</span>&nbsp;
+                        </a>
+                    </li>
 
                 </ul>
             </div><!-- Fecha Nav Direita -->
@@ -73,3 +101,4 @@ $totalLinhas = $listaTipos->num_rows;
     </nav><!-- Fecha barra de navegação -->
 </body>
 </html>
+<?php mysqli_free_result($listaTipos);?>
