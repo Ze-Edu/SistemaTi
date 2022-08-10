@@ -33,9 +33,9 @@ $totalLinhas = $lista->num_rows;
 
         <?php include('menu_publico.php');?>
 
-        <main>
+        <main class="container">
             <!-- Mostra se a consulta retornar vazio -->
-            <?php if($totalLinhas==0) { ?>
+            <?php if($linha == null) { ?>
                 <h2 class="breadcrumbt alert-danger">
                     <a href="javascript: widow.history.go(-1)" class="btn btn-danger">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -48,7 +48,7 @@ $totalLinhas = $lista->num_rows;
             <?php }?>
             <!-- Fecha se a consulta retornar vazio -->
             <!-- Mostra registros se a consulta retornar dados -->
-            <?php if($totalLinhas > 0) { ?>
+            <?php if($totalLinhas > 0 && $linha != null) { ?>
                 <h2 class="breadcrumbt alert-danger">
                     <a href="javascript: widow.history.go(-1)" class="btn btn-danger">
                         <span class="glyphicon glyphicon-chevron-left"></span>
