@@ -29,35 +29,37 @@
             </div>
         </div>
         <!-- Abre area de navegação -->
-        <div class="panel-footer" style="background: none;">
-            <h4>Links</h4>
-            <ul class="nav nav-pills nav-stacked">
-                <li>
-                    <a href="index.php#home" class="text-danger">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.php#destaques" class="text-danger">
-                        <span class="glyphicon glyphicon-ok-sign" aria-hidden="true">&nbsp;Destaques</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.php#produtos" class="text-danger">
-                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true">&nbsp;Produtos</span>
-                    </a>   
-                </li>
-                <li>
-                    <a href="index.php#contato" class="text-danger">
-                        <span class="glyphicon glyphicon-envelope" aria-hidden="true">&nbsp;Contato</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin/index.php#" class="text-danger">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;Admin</span>
-                    </a>
-                </li>
-            </ul>
+        <div class="col-sm-6 col-md-4">
+            <div class="panel-footer" style="background: none;">
+                <h4>Links</h4>
+                    <ul class="nav nav-pills nav-stacked">
+                    <li>
+                        <a href="index.php#home" class="text-danger">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true">&nbsp;Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php#destaques" class="text-danger">
+                            <span class="glyphicon glyphicon-ok-sign" aria-hidden="true">&nbsp;Destaques</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php#produtos" class="text-danger">
+                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true">&nbsp;Produtos</span>
+                        </a>   
+                    </li>
+                    <li>
+                        <a href="index.php#contato" class="text-danger">
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true">&nbsp;Contato</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin/index.php#" class="text-danger">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;Admin</span>
+                        </a>
+                    </li>
+                    </ul>
+            </div>
         </div><!-- Fecha area de navegação -->
         <div class="col-sm 6 col-md-4">
             <div class="panel-footer" style="background: none;">
@@ -117,8 +119,8 @@
         </div>
         <div class="col-sm-12">
             <div class="panel-footer">
-                    <h6 class="text-danger">
-                        Desenvolvido pot José&trade; 2022.
+                    <h6 class="text-danger text-center">
+                        Desenvolvido por José&trade; 2022.
                         <br>
                         <a href="https://ze-edu.github.io/Portiti-mud/">www.PortifólioZé.com</a>
                     </h6>
