@@ -33,7 +33,7 @@ $totalLinhas = $listaTipos-> num_rows;
                     <span class="icon-bar"></span>
                 </button>
                 <a href="index.php" class="navbar-brand">
-                    <img src="images/logochurrascopequeno.png" alt="">
+                    <img class="logo" src="images/logochurrascopequeno.png" alt="">
                 </a>
 
             </div><!--Fecha Agrupamento Mobile-->

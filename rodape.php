@@ -63,7 +63,7 @@
         </div><!-- Fecha area de navegação -->
         <div class="col-sm 6 col-md-4">
             <div class="panel-footer" style="background: none;">
-                <form action="rodape_contato_envia.php" method="post" name="form-contato">
+                <form action="rodape_contato-envia.php" method="post" name="form-contato">
                 <p>
                         <span class="input-group">
                             <span class="input-group-addon" id="basic-addon1">
@@ -98,8 +98,8 @@
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                             </span>
                             <textarea type="text" 
-                                    name="email_contato" 
-                                    id="email_contato" 
+                                    name="mensagem_contato" 
+                                    id="mensagem_contato" 
                                     placeholder="Digite seu comentario  / Dúvidas"
                                     aria-describedby="basic-addon3" 
                                     required
