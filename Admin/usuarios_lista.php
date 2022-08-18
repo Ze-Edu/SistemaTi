@@ -6,7 +6,7 @@ include ('acesso_com.php');
 include ('../connections/conn.php');
 
 // Selecionando os dados
-$consulta = "select * from tbusuarios order by login_usuarios asc";
+$consulta = "select * from tbusuarios order by login_usuario asc";
 
 // buscar a lista completa de produtos
 $lista = $conn->query($consulta);
