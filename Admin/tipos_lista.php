@@ -60,7 +60,7 @@ $total_linhas =  $lista->num_rows;
                 </td>
                 <td><?php echo $linha['rotulo_tipo'];?></td>
                 <td>
-                    <a href="tipos_atualiza.php" class="btn btn-warning btn-block btn-xs">
+                <a href="tipo_atualiza.php?id_tipo=<?php echo $linha['id_tipo'];?>" class="btn btn-warning btn-block btn-xs">
                         <span class="hidden-xs">Alterar</span>
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </a>

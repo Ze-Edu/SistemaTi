@@ -77,7 +77,7 @@ $total_linhas =  $lista->num_rows;
                     <img src="../images/<?php echo $linha['imagem_produto'];?>" width="100px" alt="">
                 </td>
                 <td>
-                    <a href="produto_atualiza.php?id_produto=<?php echo $linha['imagem_produto'];?>" class="btn btn-warning btn-block btn-xs">
+                    <a href="produto_atualiza.php?id_produto=<?php echo $linha['id_produto'];?>" class="btn btn-warning btn-block btn-xs">
                         <span class="hidden-xs">Alterar</span>
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </a>

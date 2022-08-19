@@ -60,7 +60,7 @@ $total_linhas =  $lista->num_rows;
                 </td>
                 <td><?php echo $linha['nivel_usuario'];?></td>
                 <td>
-                    <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['login_usuario'];?>" class="btn btn-warning btn-block btn-xs">
+                    <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario'];?>" class="btn btn-warning btn-block btn-xs">
                         <span class="hidden-xs">Alterar</span>
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </a>
