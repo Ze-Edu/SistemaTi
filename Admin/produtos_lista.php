@@ -1,4 +1,7 @@
 <?php
+//importando constante de sistema(para nome restaurante)
+include('../config.php');
+
 // Incluindo o sistema de autenticação 
 include ('acesso_com.php');
 
@@ -24,14 +27,14 @@ $total_linhas =  $lista->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/meu_estilo.css" type="text/css">
-    <title>Produtos (<?php echo $total_linhas; ?>) - Lista</title>
+    <title><?php echo SIS_NAME. " - Lista de " .$total_linhas; ?> Produtos</title>
 </head>
 <body>
 
 <?php include ('menu_adm.php');?>
 
 <main class="container">
-    <h1 class="breadcrumb alert-danger">Lista de Produtos</h1>
+    <h1 class="glyphicon glyphicon-shopping-cart breadcrumb alert-danger"> Lista de Produtos</h1>
     <table class="table table-condensed table-hover tbopacidade">
         <!-- thead>th*7 -->
         <thead>

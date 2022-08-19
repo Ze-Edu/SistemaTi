@@ -1,4 +1,7 @@
 <?php 
+//importando constante de sistema(para nome restaurante)
+include('../config.php');
+
     include('../connections/conn.php');
 // inicia verificação do login
     if ($_POST) {
@@ -43,7 +46,7 @@
 <html lang="pt-br">
 <head>
 <meta http-equiv="refresh" content="10;URL=../index.php">
-<title>Login</title>
+<title><?php echo SIS_NAME. " - "?> Login</title>
 <meta charset="utf-8">
 <!-- Link arquivos Bootstrap css -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
