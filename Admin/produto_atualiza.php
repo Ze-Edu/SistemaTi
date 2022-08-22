@@ -51,7 +51,7 @@ $lista = $conn->query($query_busca);
 $linha = $lista->fetch_assoc();
 $total_linhas = $lista->num_rows;
 
-$consulta_fk = "select * from order by rotulo_tipo asc";
+$consulta_fk = "select * from tbtipos order by rotulo_tipo asc";
 
 $lista_fk = $conn->query($consulta_fk);
 $linha_fk = $lista->fetch_assoc();
@@ -80,6 +80,91 @@ $total_linhas_fk = $lista_fk->num_rows;
                     </a>
                     Atualizando Produtos
                 </h3>
+                <div class="thumbnail"><!-- Abre thumbnail -->
+                    <div class="alert alert-danger" role="alert">
+                        <form action="produto_atualiza.php" method="post" 
+                        id="form_produto_atualiza" name="form_produto_atualiza"
+                        enctype="multipart/form-data">
+                            <!-- Inserir o campo id_produto OCULTO para uso no filtro -->
+                            <input type="hidden" name="id_produto" id="id_produto"
+                            value="<?php echo $linha['id_produto'];?>">
+                        <!-- Select id_tipo_produto -->
+                        <label for="id_tipo_produto">Tipo:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                            </span>
+                            <select name="id_tipo_produto" id="id_tipo_produto" class="form-control" required>
+                                <?php do {?>
+                                <option value="<?php echo $linha_fk['id_tipo']?>"
+                                    <?php 
+                                    if(!(strcmp($linha_fk['id_tipo'],$linha['id_tipo_produto'])))
+                                    {echo "selected=\"selected\"";}
+                                    ?>>
+                                    <?php echo $linha_fk['rotulo_tipo'];?>
+                                </option>
+                                <?php } while($linha_fk = $lista_fk->fetch_assoc());
+                                
+                                ?>
+                            </select>
+                        </div>
+                        <br>
+                        <!-- Radio destaque_produto -->  
+                        <label for="destaque_produto">Destaque?</label>
+                        <div class="input-group">
+                            <label for="destaque_produto_s" class="radio-inline">
+                                <input type="radio" name="destaque_produto" id="destaque_produto" value="sim"
+                                <?php echo $linha['destaque_produto']=="Sim"?"checked":null; ?>>
+                            Sim
+                            </label>
+                            <label for="destaque_produto_n" class="radio-inline">
+                                <input type="radio" name="destaque_produto" id="destaque_produto" value="Não"
+                                <?php echo $linha['destaque_produto']=="Sim"?"checked":null; ?>>
+                            Não
+                            </label>
+                        </div>
+                        <!-- Text descri_produto -->
+                        <label for="descri_produto">Descrição:</label>
+                        <div class="input-group">
+                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                            </span>
+                            <input type="text" class="form-control" 
+                            id="descri_produto" 
+                            name="descri_produto" 
+                            maxlength="100" 
+                            required 
+                            value="<?php echo $linha['descri_produto'];?>"
+                            placeholder="Digite o titulo do produto...">
+                        </div>
+                        <br>
+                        <!-- Textarea de resumo_produto -->
+                        <label for="resumo_produto">Resumo:</label>
+                        <div class="input-group">
+                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                            </span>
+                            <textarea name="resumo_produto" id="resumo_produto" cols="30" rows="8"
+                            placeholder="Digite os detalhes do produto..." class="form-control">
+                                <?php echo $linha['resumo_produto'];?>
+                            </textarea>
+                        </div>
+                        <!-- Number valor_produto -->
+                        <label for="valor_produto">Valor: R$</label>
+                        <div class="input-group">
+                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                            </span>
+                            <input type="number" name="valor_produto" id="valor_produto"
+                                min="0" step="0.01" class="form-control" value="<?php echo $linha['valor_produto'];?>">
+                        </div>
+                        <br>
+                        <!-- File imagem_produto Atual -->
+                        <label for="imagem_produto_atual">Imagem Atual: </label>
+                        <img src="../images/<?php echo $linha['imagem_produto'];?>" alt="" class="img-responsive">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
