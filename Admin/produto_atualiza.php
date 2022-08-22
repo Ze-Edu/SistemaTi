@@ -28,7 +28,9 @@ if($_POST){
 
     // Colsulta (query) sql para inserção dos dados
     $query = "update tbprodutos
-                set destaque_produto = '".$destaque_produto."',
+                set id_tipo_produto = '".$id_tipo_produto."',
+                descri_produto = '".$descri_produto."', 
+                destaque_produto = '".$destaque_produto."',
                 resumo_produto = '".$resumo_produto."',
                 valor_produto = ".$valor_produto.",
                 imagem_produto = '".$imagem_produto."'
@@ -71,7 +73,7 @@ $total_linhas_fk = $lista_fk->num_rows;
     <?php include('menu_adm.php');?>
     <main class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+            <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8">
                 <h3 class="breadcrumb text-danger">
                     <a href="produtos_lista.php">
                         <button class="btn btn-danger">
@@ -104,7 +106,11 @@ $total_linhas_fk = $lista_fk->num_rows;
                                     <?php echo $linha_fk['rotulo_tipo'];?>
                                 </option>
                                 <?php } while($linha_fk = $lista_fk->fetch_assoc());
-                                
+                                $linhas_fk = mysqli_num_rows($lista_fk);
+                                if($linhas_fk>0){
+                                    mysqli_data_seek($lista_fk,0);
+                                    $linhas_fk = $lista_fk->fetch_assoc();
+                                }
                                 ?>
                             </select>
                         </div>
@@ -161,12 +167,63 @@ $total_linhas_fk = $lista_fk->num_rows;
                         <br>
                         <!-- File imagem_produto Atual -->
                         <label for="imagem_produto_atual">Imagem Atual: </label>
-                        <img src="../images/<?php echo $linha['imagem_produto'];?>" alt="" class="img-responsive">
-                        </form>
+                        <img src="../images/<?php echo $linha['imagem_produto'];?>" alt="" class="img-responsive" style="max-width: 40%;">
+                        <!-- Guarda o nome da imagem caso ela não seja auterada -->
+                        <input type="hidden" name="imagem_produto_atual" id="imagem_produto_atual" value="<?php echo $linha['imagem_produto'];?>">
+                        <br>
+                        <!-- File imagem_produto Nova -->
+                        <label for="imagem_produto">Nova Imagem:</label>
+                        <div class="input-group">
+                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                            </span>
+                            <img src="" alt="" name="imagem" id="imagem" class="img-responsive">
+                            <input type="file" name="imagem_produto" id="imagem_produto" class="form-control" accept="image/*">
+                        </div>
+                        <br>
+                        <!-- Botão enviar -->
+                        <input type="submit" value="Atualizar" name="enviar" id="enviar" class="btn btn-danger btn-block">
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+<!-- Script para a imagem -->
+<script>
+    document.getElementById("imagem_produto").onchange = function (){
+        var reader = new FileReader();
+        if(this.files[0].size>528385){
+            alert("A imagem deve ter no máximo 500KB");
+            $("#imagem").attr("src", "blank");
+            $("#imagem").hide();
+            $("#imagem_produto").wrap('<form>').closest('form').get(0).reset();
+            $("#imagem_produto").unwrap();
+            return false;
+        }
+        // verifica se o input do tipo file possui dados
+        if(this.files[0].type.indexOf("image")==-1){
+            alert("Formato inválido, escolha uma imagem!");
+            $("#imagem").attr("src", "blank");
+            $("#imagem").hide();
+            $("#imagem_produto").wrap('<form>').closest('form').get(0).reset();
+            $("#imagem_produto").unwrap();
+        }
+        reader.onload = function (e){
+            // obter dados carregados e renderizar a miniatura
+            document.getElementById("imagem").src = e.target.result;
+            $("#imagem").show();
+        }
+        reader.readAsDataURL(this.files[0]);
+    } ;
+</script>        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
 </body>
 </html>
+<?php 
+mysqli_free_result($lista);
+mysqli_free_result($lista_fk);
+?>
