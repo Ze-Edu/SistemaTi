@@ -43,7 +43,7 @@ $total_linhas =  $lista->num_rows;
             <th>Nome</th>
             <th>Nível Usuários</th>
             <th>
-                <a href="usuario_insere.php" class="btn btn-block btn-primary btn-xs">
+                <a href="usuario_insere.php" class="btn btn-block btn-primary btn-xs" id="btn-Add">
                     <span class="hidden-xs">Adicionar<br></span>
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
@@ -60,14 +60,14 @@ $total_linhas =  $lista->num_rows;
                 </td>
                 <td><?php echo $linha['nivel_usuario'];?></td>
                 <td>
-                    <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario'];?>" class="btn btn-warning btn-block btn-xs">
+                    <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario'];?>" class="btn btn-warning btn-block btn-xs"  id="btn-padrao">
                         <span class="hidden-xs">Alterar</span>
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </a>
                     <button class="btn btn-danger btn-block btn-xs delete" 
                     role="button" 
                     data-nome="<?php echo $linha['login_usuario'];?>"
-                    data_id="<?php echo $linha['id_usuario'];?>">
+                    data_id="<?php echo $linha['id_usuario'];?>"  id="btn-padrao">
                     
                     <span class="hidden-xs">Excluir</span>
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

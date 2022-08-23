@@ -56,7 +56,7 @@ $total_linhas = $lista->num_rows;
 $consulta_fk = "select * from tbtipos order by rotulo_tipo asc";
 
 $lista_fk = $conn->query($consulta_fk);
-$linha_fk = $lista->fetch_assoc();
+$linha_fk = $lista_fk->fetch_assoc();
 $total_linhas_fk = $lista_fk->num_rows;
 
 ?>

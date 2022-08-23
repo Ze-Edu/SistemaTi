@@ -43,7 +43,7 @@ $total_linhas =  $lista->num_rows;
             <th>Sigla</th>
             <th>Rótulo</th>
             <th>
-                <a href="tipos_insere.php" class="btn btn-block btn-primary btn-xs">
+                <a href="tipos_insere.php" class="btn btn-block btn-primary btn-xs" id="btn-Add">
                     <span class="hidden-xs">Adicionar<br></span>
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </a>
@@ -60,14 +60,14 @@ $total_linhas =  $lista->num_rows;
                 </td>
                 <td><?php echo $linha['rotulo_tipo'];?></td>
                 <td>
-                <a href="tipo_atualiza.php?id_tipo=<?php echo $linha['id_tipo'];?>" class="btn btn-warning btn-block btn-xs">
+                <a href="tipos_atualiza.php?id_tipo=<?php echo $linha['id_tipo'];?>" class="btn btn-warning btn-block btn-xs" id="btn-padrao">
                         <span class="hidden-xs">Alterar</span>
                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                     </a>
                     <button class="btn btn-danger btn-block btn-xs delete" 
                     role="button" 
                     data-nome="<?php echo $linha['sigla_tipo'];?>"
-                    data_id="<?php echo $linha['id_tipo'];?>">
+                    data_id="<?php echo $linha['id_tipo'];?>" id="btn-padrao">
                     
                     <span class="hidden-xs">Excluir</span>
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

@@ -5,3 +5,12 @@
     -webkit-background-size: cover;
     background-size: cover;
 }
+
+#btn-padrao{
+    width: 100px;
+    height: 25px;
+}
+#btn-Add{
+    width: 150px;
+    height: 40px;
+}
