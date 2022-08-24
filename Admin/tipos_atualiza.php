@@ -120,6 +120,7 @@ $total_linhas_fk = $lista_fk->num_rows;
                                 <?php echo $linha['rotulo_tipo'];?>
                             </textarea>
                         </div>
+                        <br>
                         <!-- Botão enviar -->
                         <input type="submit" value="Atualizar" name="enviar" id="enviar" class="btn btn-danger btn-block">
                     </form>

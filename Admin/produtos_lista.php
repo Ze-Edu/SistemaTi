@@ -77,20 +77,17 @@ $total_linhas =  $lista->num_rows;
                     <img src="../images/<?php echo $linha['imagem_produto'];?>" width="100px" alt="">
                 </td>
                 <td>
-                    <a href="produto_atualiza.php?id_produto=<?php echo $linha['id_produto'];?>" class="btn btn-warning btn-block btn-xs">
-                        <span class="hidden-xs">Alterar</span>
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    </a>
-                    <button class="btn btn-danger btn-block btn-xs delete" 
-                    role="button" 
-                    data-nome="<?php echo $linha['descri_produto'];?>"
-                    data_id="<?php echo $linha['id_produto'];?>">
-                    
-                    <span class="hidden-xs">Excluir</span>
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-
-                    </button>
-                </td>
+                            <a href="produto_atualiza.php?id_produto=<?php echo $linha['id_produto'] ?>" class="btn btn-warning btn-block btn-xs">
+                                <span class="hidden-xs">Alterar</span>
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
+                            <button class="btn btn-danger btn-block btn-xs delete " role="button"
+                            data-id="<?php echo $linha['id_produto']; ?>"
+                            data-nome="<?php echo $linha['descri_produto']; ?>">
+                                <span class="hidden-xs ">Excluir <br></span>
+                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </button>
+                        </td>
             </tr><!-- Fecha a linha da tabela -->
 
             <?php } while ($linha=$lista->fetch_assoc()); ?><!-- Fecha a estrutura de repetição -->
@@ -101,47 +98,47 @@ $total_linhas =  $lista->num_rows;
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal">
-                    &times;
-                </button>
-                <h4 class="modal-title text-danger">Atenção</h4>
-            </div>
-            <div class="modal-body">
-                Deseja realmente <n>excluir<n> o item?
-                <h3><span class="text-danger nome"></span></h3>
-            </div>
-            <div class="modal-footer">
-                <a href="#" type="button" class="btn btn-danger delete-yes">
-                    Confirmar
-                </a>
-                <button class="btn btn-succes" data-dismiss="modal">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close" type="button"data-dismiss="modal" >&times;</button>
+            <h4 class="modal-title text-danger">Atenção</h4>
+        </div>
+        <div class="modal-body">
+            Deseja Realmente  <strong>Excluir</strong> Este Produto ?
+            <h3><span class="text-danger nome"></span></h3>
+        </div>
+        <div class="modal-footer">
+            <a href="#" type="button" class="btn btn-danger delete-yes">Confirmar</a>
+            <button class="btn btn-success" data-dismiss="modal">
                     Cancelar
-                </button>
-            </div>
+            </button>
         </div>
     </div>
-</div><!-- Fecha modal -->
+</div>
+</div>
+<!-- Fecha modal -->
 
 <!-- Link arquivos Bootstrap js -->        
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <!-- Script para o modal -->
+
 <script type="text/javascript">
-    $('.delete').on('click', function(){
-        // busca o valor do atributo  data-nome
-        var nome = $(this).data('nome');
-        // busca o valor do atributo data-id
-        var id =$(this).data('id');
-        // insere o nome do item na confirmação do modal
-        $('span.nome').text(nome);
-        // envia o id através do link do botão confirmar
-        $('a.delete-yes').attr('href','produto_excluir.php?id_produto='+id); 
-        // Abre modal
-        $('#myModal').modal('show');
-    })
+
+$('.delete').on('click',function(){
+    //Busca o valor do atributo data-nome
+    var nome = $(this).data('nome');
+    //Busca o valor do atributo data-id
+    var id = $(this).data('id');
+    //Insere o nome do item na confirmação do Modal
+    $('span.nome').text(nome);
+    //Envia o id através do link do botão para confirmar
+    $('a.delete-yes').attr('href','produto_excluir.php?id_produto='+id);
+    //Abre o Modal
+    $('#myModal').modal('show');
+})
+
 </script>
 
 </body>

@@ -15,9 +15,6 @@ if($_POST){
     // Campo do form para filtrar o registro
     $id_filtro = $_POST['id_usuario'];
 
-    // Campo do form para filtrar o registro
-    $id_filtro = $_POST['id_produto'];
-
     // Colsulta (query) sql para inserção dos dados
     $query = "update tbprodutos
                 set id_usuario = '".$id_usuario."',
@@ -105,41 +102,32 @@ $total_linhas_fk = $lista_fk->num_rows;
                             </select>
                         </div>
                         <br>
-                        <!-- Text descri_produto -->
-                        <label for="descri_produto">Descrição:</label>
+                        <!-- Text Login usuario -->
+                        <label for="login_usuario">Login Usuario:</label>
                         <div class="input-group">
                         <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                             </span>
                             <input type="text" class="form-control" 
-                            id="descri_produto" 
-                            name="descri_produto" 
+                            id="login_usuario" 
+                            name="login_usuario" 
                             maxlength="100" 
                             required 
-                            value="<?php echo $linha['descri_produto'];?>"
-                            placeholder="Digite o titulo do produto...">
+                            value="<?php echo $linha['login_usuario'];?>"
+                            placeholder="Nome do usuario">
                         </div>
                         <br>
-                        <!-- Textarea de resumo_produto -->
-                        <label for="resumo_produto">Resumo:</label>
+                        
+                        <!-- Number senha usuario -->
+                        <label for="senha_usuario">Senha: </label>
                         <div class="input-group">
                         <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                             </span>
-                            <textarea name="resumo_produto" id="resumo_produto" cols="30" rows="8"
-                            placeholder="Digite os detalhes do produto..." class="form-control">
-                                <?php echo $linha['resumo_produto'];?>
-                            </textarea>
+                            <input type="number" name="senha_usuario" id="senha"
+                                min="0" step="0.01" class="form-control" value="<?php echo $linha['senha_usuario'];?>">
                         </div>
-                        <!-- Number valor_produto -->
-                        <label for="valor_produto">Valor: R$</label>
-                        <div class="input-group">
-                        <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-                            </span>
-                            <input type="number" name="valor_produto" id="valor_produto"
-                                min="0" step="0.01" class="form-control" value="<?php echo $linha['valor_produto'];?>">
-                        </div>
+                        <br>
                         <!-- Botão enviar -->
                         <input type="submit" value="Atualizar" name="enviar" id="enviar" class="btn btn-danger btn-block">
                     </form>
