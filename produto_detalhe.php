@@ -4,12 +4,10 @@ include ('connections/conn.php');
 $id = $_GET['id_produto'];
 
 //echo "<h1>Voce digitou na busca: ".$busca_user."</h1>";
-
 $consulta = "select * from vw_tbprodutos where id_produto = " . $id;
-
 $produtoConsulta = $conn->query($consulta);
-
 $linha = $produtoConsulta->fetch_assoc();
+
 
 
 /* <table>

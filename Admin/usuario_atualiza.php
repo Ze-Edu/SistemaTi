@@ -1,6 +1,6 @@
 <?php 
 include("../config.php");
-include("./acesso_com.php");// Importante!!! - Para a autenticação do usuário
+include("acesso_com.php");// Importante!!! - Para a autenticação do usuário
 include('../connections/conn.php');// Conexão com o banco
 
 if($_POST){
@@ -26,10 +26,9 @@ if($_POST){
 
     // Ápos a ação a página será direcionada
     if(mysqli_insert_id($conn)){
-        header('location: usuarios_lista.php');
-        // Adicionar tratamento...
+        header('location:usuarios_lista.php');
     }else{
-        header('location: usuarios_lista.php');
+        header('location:usuarios_lista.php');
     }
 }
 

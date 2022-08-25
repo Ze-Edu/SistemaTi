@@ -67,7 +67,7 @@ $total_linhas =  $lista->num_rows;
                     <button class="btn btn-danger btn-block btn-xs delete" 
                     role="button" 
                     data-nome="<?php echo $linha['sigla_tipo'];?>"
-                    data_id="<?php echo $linha['id_tipo'];?>" id="btn-padrao">
+                    data-id="<?php echo $linha['id_tipo'];?>" id="btn-padrao">
                     
                     <span class="hidden-xs">Excluir</span>
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

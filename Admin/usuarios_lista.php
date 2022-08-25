@@ -60,14 +60,14 @@ $total_linhas =  $lista->num_rows;
                 </td>
                 <td><?php echo $linha['nivel_usuario'];?></td>
                 <td>
-                    <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario'];?>" class="btn btn-warning btn-block btn-xs"  id="btn-padrao">
-                        <span class="hidden-xs">Alterar</span>
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                    </a>
+                <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario'] ?>" class="btn btn-warning btn-block btn-xs" id="btn-padrao">
+                                <span class="hidden-xs">Alterar</span>
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </a>
                     <button class="btn btn-danger btn-block btn-xs delete" 
                     role="button" 
-                    data-nome="<?php echo $linha['login_usuario'];?>"
-                    data_id="<?php echo $linha['id_usuario'];?>"  id="btn-padrao">
+                    data-id="<?php echo $linha['id_usuario'];?>" id="btn-padrao"
+                    data-nome="<?php echo $linha['login_usuario'];?>">
                     
                     <span class="hidden-xs">Excluir</span>
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -84,34 +84,31 @@ $total_linhas =  $lista->num_rows;
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal">
-                    &times;
-                </button>
-                <h4 class="modal-title text-danger">Atenção</h4>
-            </div>
-            <div class="modal-body">
-                Deseja realmente <n>excluir<n> o item?
-                <h3><span class="text-danger nome"></span></h3>
-            </div>
-            <div class="modal-footer">
-                <a href="#" type="button" class="btn btn-danger delete-yes">
-                    Confirmar
-                </a>
-                <button class="btn btn-succes" data-dismiss="modal">
-                    Cancelar
-                </button>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button"data-dismiss="modal" >&times;</button>
+                    <h4 class="modal-title text-danger">Atenção</h4>
+                </div>
+                <div class="modal-body">
+                    Deseja Realmente  <strong>Excluir</strong> Este Usuario ?
+                    <h3><span class="text-danger nome"></span></h3>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" type="button" class="btn btn-danger delete-yes">Confirmar</a>
+                    <button class="btn btn-success" data-dismiss="modal">
+                            Cancelar
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</div><!-- Fecha modal -->
+    </div><!-- Fecha modal -->
 
 <!-- Link arquivos Bootstrap js -->        
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <!-- Script para o modal -->
+
 <script type="text/javascript">
     $('.delete').on('click', function(){
         // busca o valor do atributo  data-nome
