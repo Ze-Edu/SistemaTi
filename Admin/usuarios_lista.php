@@ -39,9 +39,10 @@ $total_linhas =  $lista->num_rows;
 <table class="table table-condensed table-hover tbopacidade">
         <!-- thead>th*7 -->
         <thead>
-            <th>Id</th>
+            <th class="hidden">Id</th>
             <th>Nome</th>
             <th>Nível Usuários</th>
+            <th>Senha Usuários</th>
             <th>
                 <a href="usuario_insere.php" class="btn btn-block btn-primary btn-xs" id="btn-Add">
                     <span class="hidden-xs">Adicionar<br></span>
@@ -54,11 +55,12 @@ $total_linhas =  $lista->num_rows;
         <!-- Abre a estrutura de repetição -->
         <?php do {?>
             <tr><!-- linha da tabela -->
-                <td><?php echo $linha['id_usuario'];?></td>
+                <td class="hidden"><?php echo $linha['id_usuario'];?></td>
                 <td>
                     <span class="glyphicon glyphicon-user hiddden-xs"> <?php echo $linha['login_usuario']?></span>
                 </td>
                 <td><?php echo $linha['nivel_usuario'];?></td>
+                <td><?php echo $linha['senha_usuario'];?></td>
                 <td>
                 <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario'] ?>" class="btn btn-warning btn-block btn-xs" id="btn-padrao">
                                 <span class="hidden-xs">Alterar</span>

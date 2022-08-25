@@ -39,7 +39,8 @@ rotulo_tipo varchar(15) not null
 -- Extraindo dados da tabela `tbtipos`
 INSERT INTO `tbtipos` (`id_tipo`, `sigla_tipo`, `rotulo_tipo`) VALUES
 (1, 'chu', 'Churrasco'),
-(2, 'sob', 'Sobremesa');
+(2, 'sob', 'Sobremesa'),
+(3,'beb','bebidas');
 
 select * from tbtipos;
 
@@ -59,16 +60,23 @@ INSERT INTO `tbusuarios` (`id_usuario`, `login_usuario`, `senha_usuario`, `nivel
 (4, 'well', '1234', 'sup'),
 (5, 'josé', '1234', 'sup');
 
-INSERT INTO `tbusuarios` (`id_usuario`, `login_usuario`, `senha_usuario`, `nivel_usuario`) VALUES
-(5, 'josé', '1234', 'sup');
-
 select * from tbusuarios;
 select * from tbusuarios order by login_usuario asc;
+
+update tbprodutos set deletado = null where id_produto between 1 and 9;
+
+select * from tbprodutos;
+update tbprodutos set deletado = null where id_produto between 1 and 9;
+
+select * from tbtipos;
+update tbtipos set deletado = null where id_tipo between 1 and 2;
+
+select * from tbusuarios;
+update tbusuarios set deletado = null where id_usuario between 1 and 2;
 
 
 select * from vw_tbprodutos order by descri_produto asc;
 select * from tbusuarios order by login_usuario asc;
-select * from tbprodutos;
 
 -- índices da tabela tbprodutos
 

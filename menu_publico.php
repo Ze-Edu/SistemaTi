@@ -64,6 +64,9 @@ $totalLinhas = $listaTipos-> num_rows;
                                 <?php } while ($linhaTipo=$listaTipos->fetch_assoc());?>
                         </ul>
                     </li><!-- Fecha Dropdown -->
+
+                        
+
                     <li><a href="index.php#contato">Contato</a></li>
                     <li>
                         <!-- Formulario de busca -->
