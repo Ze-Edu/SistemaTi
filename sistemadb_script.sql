@@ -85,6 +85,8 @@ update tbprodutos set deletado = null where id_produto between 1 and 9;
 select * from tbtipos;
 update tbtipos set deletado = null where id_tipo between 1 and 2;
 
+select * from tbtipos order by sigla_tipo asc;
+
 select * from tbusuarios;
 update tbusuarios set deletado = null where id_usuario between 1 and 2;
 
