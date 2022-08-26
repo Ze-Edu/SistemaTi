@@ -102,7 +102,7 @@ $linha_fk = $lista_fk->fetch_assoc();
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                 </span>
-                                <input type="password" name="senha_usuario" id="senha_usuario" required class="form-control">
+                                <input type="number" name="senha_usuario" id="senha_usuario" required class="form-control">
                             </div>
                             <br>
                             <!-- Botão Enviar -->

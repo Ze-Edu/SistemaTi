@@ -1,34 +1,35 @@
 <?php
 //Incluindo variáveis de ambiente, acesso e banco
 include('../config.php');
-include('acesso_com.php'); //Importante! Autentica o usuário
+include('acesso_com.php'); //Importante!!!!!!!!!!!! Autentica o usuário
 include('../connections/conn.php');
 
 if ($_POST) {
-
-    //Receber os dados do formulário
+ 
+    //Reber os dados do formulário
     //organizar os campos na mesma ordem
     $id_nivel_usuario = $_POST['id_nivel_usuario'];
     $login_usuario = $_POST['login_usuario'];
     $senha_usuario = $_POST['senha_usuario'];
+
 
     //Campo do form para filtar o registro
     $id_filtro = $_POST['id_usuario'];
 
     //Consulta(query) Sql para inserção dos dados
     $query = "update tbusuarios
-                set id_nivel_usuario = '" . $id_nivel_usuario . "',
-                login_usuario = '" . $login_usuario . "',
-                senha_usuario = '" . $senha_usuario . "',
-                 where id_usuario = " . $id_filtro . ";";
+     set id_nivel_usuario = '" . $id_nivel_usuario . "',
+     login_usuario = '" . $login_usuario . "',
+     senha_usuario = '" . $senha_usuario . "'                         
+      where id_usuario = " . $id_filtro . ";";
 
     $resultado = $conn->query($query);
 
     //Após a ação a página será direcionada
     if (mysqli_insert_id($conn)) {
-        header('location:usuarios_lista.php');
+        header('location: usuarios_lista.php');
     } else {
-        header('location:usuarios_lista.php');
+        header('location: usuarios_lista.php');
     }
 }
 
@@ -53,13 +54,12 @@ $totalLinha_fk = $lista_fk->num_rows;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <<?php echo 'SYS_NAME'?> - Atualizar Usuário </title>
+    <title><?php echo SIS_NAME. " - " ?>Atualizar Usuário </title>
             <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
             <link href="../css/meu_estilo.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="fundofixo">
     <?php include('menu_adm.php'); ?>
     <main class="container">
         <div class="row">
@@ -88,9 +88,9 @@ $totalLinha_fk = $lista_fk->num_rows;
                                 <select name="id_nivel_usuario" id="id_nivel_usuario" class="form-control" required>
                                     <?php do { ?>
                                         <option value="<?php echo $linha_fk['id_nivel']; ?>" <?php
-                                            if (!(strcmp($linha_fk['id_nivel'], $linha['id_nivel_usuario']))) {
-                                              echo "selected=\"selected\"";
-                                                } ?>>
+                                          if (!(strcmp($linha_fk['id_nivel'], $linha['id_nivel_usuario']))) {
+                                           echo "selected=\"selected\"";
+                                           } ?>>
 
                                             <?php echo $linha_fk['nome_nivel']; ?>
                                         </option>
@@ -117,11 +117,12 @@ $totalLinha_fk = $lista_fk->num_rows;
                             <label for="senha_usuario">Senha Usuário:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
                                 </span>
-                                <input type="password" class="form-control" id="senha_usuario" name="senha_usuario" maxlength="12" required value="<?php echo $linha['senha_usuario']; ?>" placeholder="Digite o titulo do produto...">
+                                <input type="number" class="form-control" id="senha_usuario" name="senha_usuario" maxlength="12" required value="<?php echo $linha['senha_usuario']; ?>" placeholder="Digite o titulo do produto...">
                             </div>
                             <br>
+                            
                             <!-- Botão Enviar -->
                             <input type="submit" value="Atualizar" name="enviar" id="enviar" class="btn btn-danger btn-block">
                         </form>
@@ -130,6 +131,8 @@ $totalLinha_fk = $lista_fk->num_rows;
             </div>
         </div>
     </main>
+    
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 </body>

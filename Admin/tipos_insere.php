@@ -31,7 +31,7 @@ if($_POST){
 
 
 //Chave estrangeira tipo
-$query_tipo = "select * from tbnivel order by nome_nivel asc";
+$query_tipo = "select * from tbtipos order by sigla_tipo asc";
 $lista_fk = $conn->query($query_tipo);
 $linha_fk = $lista_fk->fetch_assoc();
 ?>
@@ -52,7 +52,7 @@ $linha_fk = $lista_fk->fetch_assoc();
         <div class="row">
             <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-2 col-md-8">
                 <h2 class="breadcrumb tex-danger">
-                    <a href="usuarios_lista.php">
+                    <a href="tipos_lista.php">
                         <button class="btn btn-danger">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
@@ -69,29 +69,16 @@ $linha_fk = $lista_fk->fetch_assoc();
                             <label for="id_tipo">Tipo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
                                 </span>
-
-                                <select name="id_tipo" id="id_tipo" class="form-control" required>
-                                    <?php do { ?>
-                                        <option value="<?php echo $linha_fk['id_tipo']; ?>">
-                                            <?php echo $linha_fk['rotulo_tipo']; ?>
-                                        </option>
-                                    <?php } while ($linha_fk = $lista_fk->fetch_assoc());
-                                    $linha_fk = mysqli_num_rows($lista_fk);
-                                    if ($linha_fk > 0) {
-                                        mysqli_data_seek($lista_fk, 0);
-                                        $linha_fk = $lista_fk->fetch_assoc();
-                                    }
-                                    ?>
-                                </select>
+                                <input type="text" class="form-control" id="id_tipo" name="id_tipo" maxlength="100" required  placeholder="Digite o novo tipo">
                             </div>
                             <br>
                             <!-- Text sigla -->
                             <label for="sigla_tipo">Sigla:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
                                 </span>
                                 <input type="text" class="form-control" id="sigla_tipo" name="sigla_tipo" maxlength="100" required  placeholder="Digite a nova sigla">
                             </div>
@@ -100,7 +87,7 @@ $linha_fk = $lista_fk->fetch_assoc();
                             <label for="rotulo_tipo">Rótulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
                                 </span>
                                 <input type="text" name="rotulo_tipo" id="rotulo_tipo" required class="form-control" placeholder="Digite o novo rotulo">
                             </div>
