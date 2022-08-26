@@ -30,6 +30,10 @@ include("config.php")
     <!-- Area produtos em geral -->  
     <a name="produtos">&nbsp;</a>
     <?php include('produtos_geral.php');?>
+
+    <!-- Area de reservas -->
+    <a name="Reservas"></a>
+    <?php include('reservas_publico.php');?>
     <hr>
 
     <!-- Area de Rodapé -->
