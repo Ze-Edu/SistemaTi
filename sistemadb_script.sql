@@ -47,18 +47,32 @@ select * from tbtipos;
 -- estrutura da tabela tbusuários
 
 create table tbusuarios(
-id_usuario int(11) not null,
+id_usuario int(11) primary key auto_increment not null,
 login_usuario varchar(30) not null unique,
 senha_usuario varchar(8) not null,
-nivel_usuario enum('sup', 'com', 'cli') not null
+id_nivel_usuario int(11) not null
 )engine=InnoDB default charset=utf8;
 
-INSERT INTO `tbusuarios` (`id_usuario`, `login_usuario`, `senha_usuario`, `nivel_usuario`) VALUES
-(1, 'senac', '1234', 'sup'),
-(2, 'joao', '4568', 'com'),
-(3, 'maria', '7894', 'cli'),
-(4, 'well', '1234', 'sup'),
-(5, 'josé', '1234', 'sup');
+INSERT INTO `tbusuarios` (`id_usuario`, `login_usuario`, `senha_usuario`, `id_nivel_usuario`) VALUES
+(1, 'senac', '1234', '1'),
+(2, 'joao', '4568', '2'),
+(4, 'well', '1234', '3');
+
+INSERT INTO `tbusuarios` (`id_usuario`, `login_usuario`, `senha_usuario`, `id_nivel_usuario`) VALUES
+(3, 'pepino', '12345', '2');
+
+
+create table tbnivel(
+id_nivel int(11) primary key auto_increment not null,
+nome_nivel varchar(20) not null
+)engine=InnoDB default charset=utf8;
+
+-- Inserindo dados da tabela `tbnivel`
+
+insert into tbnivel (id_nivel, nome_nivel)
+values (1,'Supervisor'),(2,'Comercial'),(3,'Cliente'),(4,'Desligado');
+
+select * from tbnivel;
 
 select * from tbusuarios;
 select * from tbusuarios order by login_usuario asc;
@@ -76,6 +90,8 @@ update tbusuarios set deletado = null where id_usuario between 1 and 2;
 
 
 select * from vw_tbprodutos order by descri_produto asc;
+select * from tbusuarios order by login_usuario asc;
+
 select * from tbusuarios order by login_usuario asc;
 
 -- índices da tabela tbprodutos

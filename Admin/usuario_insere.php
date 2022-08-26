@@ -87,7 +87,7 @@ $linha_fk = $lista_fk->fetch_assoc();
                                 </select>
                             </div>
                             <br>
-                            <!-- Text descri_produto -->
+                            <!-- Text login -->
                             <label for="login_usuario">Login:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -96,7 +96,7 @@ $linha_fk = $lista_fk->fetch_assoc();
                                 <input type="text" class="form-control" id="login_usuario" name="login_usuario" maxlength="100" required  placeholder="Digite o login do novo usuário">
                             </div>
                             <br>
-                            <!-- number valor_produto -->
+                            <!-- number senha -->
                             <label for="senha_usuario">Senha:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">

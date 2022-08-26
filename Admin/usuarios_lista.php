@@ -34,7 +34,7 @@ $totalLinhas = $lista->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/meu_estilo.css" rel="stylesheet" type="text/css">
-    <title><?php echo SIS_NAME. " - Lista de " .$total_linhas; ?> Usuarios</title>
+    <title><?php echo SIS_NAME. " - Lista de " .$totalLinhas; ?> Usuarios</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ $totalLinhas = $lista->num_rows;
                 <th>Login</th>
                 <th>Nível</th>                
                 <th class="largButton">
-                    <a href="usuario_insere.php" class="btn largButton btn-primary btn-xs" id="btn-Add">
+                    <a href="usuario_insere.php" class="btn btn-block btn-primary btn-xs" id="btn-Add">
                         <span class="hidden-xs">Adicionar<br></span>
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </a>
@@ -80,16 +80,19 @@ $totalLinhas = $lista->num_rows;
                             }
                             ?>
                             <?php echo $linha['nome_nivel']; ?>
-                        </td>                                                                      
+                        </td>  
+                                                                       
                         <td>
-                            <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario']; ?>" class="btn btn-warning largButton btn-xs" id="btn-padrao">
+                            <a href="usuario_atualiza.php?id_usuario=<?php echo $linha['id_usuario']; ?>" class="btn btn-warning btn-block btn-xs" id="btn-padrao">
                                 <span class="hidden-xs">Alterar</span>
                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                             </a>
+                   
                             <button class="btn btn-danger largButton btn-xs delete" 
                             role="button" 
                             data-nome="<?php echo $linha['login_usuario'];?>" 
                             data-id="<?php echo $linha['id_usuario'];?>" id="btn-padrao">
+                 
                             <span class="hidden-xs">Excluir</span>
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </button>
