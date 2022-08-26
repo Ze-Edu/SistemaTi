@@ -2,7 +2,8 @@
 //importando constante de sistema(para nome restaurante)
 include('../config.php');
 
-    include('../connections/conn.php');
+include('../connections/conn.php');
+
 // inicia verificação do login
     if ($_POST) {
         // definindo o USE do banco de dados
