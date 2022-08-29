@@ -95,7 +95,7 @@ $linha_fk = $lista_fk->fetch_assoc();
                             </div>
                             <br>
                             <!-- text motivo -->
-                            <label for="motivo_reserva">motivo_reserva:</label>
+                            <label for="motivo_reserva">Motivo da reserva:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
