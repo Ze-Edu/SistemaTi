@@ -31,6 +31,9 @@ include("config.php")
     <a name="produtos">&nbsp;</a>
     <?php include('produtos_geral.php');?>
 
+    <!-- Area de carousel de reservas -->
+    <?php include('carousel_reservas.php')?>
+
     <!-- Area de reservas -->
     <a name="Reservas"></a>
     <?php include('reservas_publico.php');?>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zé Carnes</title>
+    <title>Zé Churras</title>
 </head>
 <body>
     <div id="banners" class="carousel slide" data-ride="carousel">
