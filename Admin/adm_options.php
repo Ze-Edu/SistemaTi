@@ -133,7 +133,7 @@
         </div><!-- fecha alert-danger -->        
     </div><!-- fecha thumbnail -->
 </div><!-- fecha o dimensionamento -->
-<!-- FECHA ADM USUÁRIOS -->      
+<!-- FECHA ADM USUÁRIOS -->   
 
 <!-- ADM RESERVAS --> 
 <div class="col-sm-6 col-md-4">
@@ -166,6 +166,37 @@
     </div><!-- fecha thumbnail -->
 </div><!-- fecha o dimensionamento -->
 <!-- FECHA ADM RESERVAS --> 
+
+<!-- ADM CLIENTES    --> 
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail alert-info">
+        <img src="" alt="">
+        <br>
+        <div class="alert-info">
+            <!-- Botão principal -->                    
+            <div class="btn btn-group btn-group-justified" role="group">
+                <div class="btn-group" >
+                    <button class="btn btn-default disabled" style="cursor:default;">
+                        Clientes
+                    </button>
+                </div>
+            </div>
+            <!-- Fecha botão principal -->
+            <!-- Botões Listar e inserir -->
+            <div class="btn btn-group btn-group-justified" role="group">
+               <!-- botão Listar -->
+                <div class="btn-group">
+                   <a href="cliente_lista.php">
+                       <button class="btn btn-info">
+                            Listar
+                        </button>
+                   </a>
+                </div><!-- Fecha botão Listar -->
+            </div>
+            <!-- Fecha Botões Listar e inserir -->
+        </div><!-- fecha alert-danger -->        
+    </div><!-- fecha thumbnail -->
+</div><!-- fecha o dimensionamento -->
                            
 </div><!-- fecha row -->
 </main>

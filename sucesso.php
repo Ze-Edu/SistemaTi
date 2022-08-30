@@ -12,7 +12,7 @@
 <body>
 
 <div class="alert alert-success" role="alert" style="text-align: center;">
-  Sucesso!
+  Sucesso! em fazer sua reserva, Aguarde até 24 horas para o retorno do restaurante
 </div>
     
 </body>

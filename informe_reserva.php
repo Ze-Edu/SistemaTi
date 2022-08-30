@@ -29,7 +29,7 @@ if($_POST){
         header("location:sucesso.php");
     }else{
         header("location:sucesso.php");
-    } 
+    }
 }
 
 
@@ -104,7 +104,8 @@ $linha_fk = $lista_fk->fetch_assoc();
                             </div>
                             <br>
                             <!-- informações/regras -->
-                            <h4 style="text-align: center;">No mínimo 36 horas de antecedência e no máximo 60 dias para reservar. Apenas um pedido de reserva por dia para um mesmo cpf</h4>
+                            <h4 style="text-align: center;">No mínimo 36 horas de antecedência e no máximo 60 dias para reservar. 
+                            Apenas um pedido de reserva por dia para um mesmo cpf</h4>
                             <!-- Botão Enviar -->
                             <input type="submit" value="Reservar" name="enviar" id="enviar" class="btn btn-success btn-block">
                         </form>

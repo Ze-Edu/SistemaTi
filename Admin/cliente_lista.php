@@ -6,10 +6,10 @@ include ('../config.php');
 include('acesso_com.php');
 
 //Incluindo o Arquivo de conexão
-include('../connections/conn.php');
+include('./connections/conn.php');
 
-//Buscando TBRESERVA
-$consulta = "select * from vw_tbreserva order by numero_mesa_reserva asc";
+//Buscando o nome do nível
+$consulta = "select * from tbcliente order by nome_cliente asc";
 
 // Buscar a lista completa de usuários
 $lista = $conn->query($consulta);
@@ -29,52 +29,47 @@ $totalLinhas = $lista->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/meu_estilo.css" rel="stylesheet" type="text/css">
-    <title><?php echo SIS_NAME. " - Lista de " .$totalLinhas; ?> Reservas</title>
+    <title><?php echo SIS_NAME. " - Lista de " .$totalLinhas; ?> Clientes</title>
 </head>
 
 <body>
     <?php include('menu_adm.php'); ?>
 
     <main class="container">
-        <h1 class="breadcrump alert-info glyphicon glyphicon-th-list"> Lista de reservas</h1>
+        <h1 class="breadcrump alert-info glyphicon glyphicon-user"> Lista de Clientes </h1>
         <table class="table table-condensed table-hover">
             <!--thead>th*8-->
             <thead>                
                 <th>ID</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Número da mesa</th>
-                <th>Número de pessoas</th>
-                <th>Motivo reserva</th>
-                <th>Valor Reserva</th>
-                <th>status reserva</th>
-                <th>Parecer</th>             
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>E-mail</th>
+                <th>Telefone</th>                  
             </thead> <!-- Final linha de cabeçalho da tabela -->
+            <!-- tboby>tr>td*8 -->
             <tboby>
                 <!-- Corpo da tabela -->
                 <!--Abre estrutura de repetição-->
                 <?php do { ?>
-                    <tr style="background-color: rgba(0,0,0,0.2);">
+                    <tr>
                         <!-- Linha da tabela -->
-                        <td><?php echo $linha['id_reserva']; ?></td>                       
-                        <td><?php echo $linha['data_reserva'];?></span></td>
-                        <td><?php echo $linha['hora_reserva']; ?></td> 
-                        <td><?php echo $linha['numero_mesa_reserva'];?></td>
-                        <td><?php echo $linha['numero_pessoas_reserva'];?></td>
-                        <td><?php echo $linha['motivo_reserva'];?></td>
-                        <td><?php echo $linha['valor_reserva'];?></td>
-                        <td><?php echo $linha['status_reserva'];?></td>
-                        <td><?php echo $linha['parecer_reserva'];?></td>
+                        <td><?php echo $linha['id_cliente']; ?></td>                       
+                        <td><?php echo $linha['nome_cliente'];?></td>                                              
+                        <td><?php echo $linha['cpf_cliente'];?></td>
+                        <td><?php echo $linha['email_cliente'];?></td>
+                        <td><?php echo $linha['telefone_cliente'];?></td>
+                        
                         <td>
-                            <a href="email_reserva.php?id_reserva=<?php echo $linha['id_reserva']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
+                        <a href="email_reserva.php?id_reserva=<?php echo $linha['id_cliente']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
                                 <span class="hidden-xs">Enviar Parecer</span>
                                 <br>
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             </a>
+                   
                             <button class="btn btn-danger largButton btn-xs delete" 
                             role="button" 
-                            data-nome="<?php echo $linha['id_cliente'];?>" 
-                            data-id="<?php echo $linha['id_reserva'];?>" id="btn-reserva-excluir">
+                            data-nome="<?php echo $linha['nome_cliente'];?>" 
+                            data-id="<?php echo $linha['id_cliente'];?>" id="btn-reserva-excluir">
                  
                             <span class="hidden-xs">Excluir</span>
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -83,7 +78,6 @@ $totalLinhas = $lista->num_rows;
                     </tr> <!-- Final da linha da tabela -->
                 <?php } while ($linha = $lista->fetch_assoc()); ?>
             </tboby> <!-- Final do corpo da tabela -->
-
         </table>
 
     </main>
@@ -96,7 +90,7 @@ $totalLinhas = $lista->num_rows;
                     <h4 class="modal-title text-danger">Atenção!</h4>
                 </div>
                 <div class="modal-body">
-                    Deseja realmente<strong> excluir </strong> essa reserva?
+                    Deseja realmente<strong> excluir </strong> o usuário?
                     <h3><span class="text-danger nome"></span></h3>
                 </div>
                 <div class="modal-footer">
@@ -119,7 +113,7 @@ $totalLinhas = $lista->num_rows;
             //Insere o nome do item na confirmação do modal
             $('span.nome').text(nome);
             //Envia o id através do link do butão confirmar
-            $('a.delete-yes').attr('href', 'reserva_excluir.php?id_reserva='+id);
+            $('a.delete-yes').attr('href', 'cliente_excluir.php?id_cliente='+id);
             //Abre o Modal
             $('#myModal').modal('show');
 

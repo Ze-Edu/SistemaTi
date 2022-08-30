@@ -28,6 +28,53 @@ INSERT INTO `tbprodutos` (`id_produto`, `id_tipo_produto`, `descri_produto`, `re
 select * from tbprodutos;
 update tbprodutos set deletado = null where id_produto between 1 and 9;
 
+-- estrutura tbclientes
+
+create table tbcliente(
+id_cliente int(11) primary key auto_increment not null,
+nome_cliente varchar(60) not null,
+cpf_cliente varchar(11) not null unique,
+email_cliente varchar(32) not null unique,
+telefone_cliente bigint(11) not null 
+)engine=InnoDB default charset=utf8;
+
+-- Inserindo dados da tabela `tbcliente`
+
+insert into `tbcliente` (`id_cliente`, `nome_cliente`, `cpf_cliente`, `email_cliente`, `telefone_cliente`)
+values (default,'cliente', 12345678910, 'cliente@gmail.com', 11921239865);
+
+insert into `tbcliente` (`id_cliente`, `nome_cliente`, `cpf_cliente`, `email_cliente`, `telefone_cliente`)
+values (default,'jose', 36985245863, 'jose@gmail.com', 34587356825),
+(default,'wellington', 36515675268, 'well@gmail.com', 64851325985),
+(default,'maria', 65486597526, 'maria@gmail.com', 35421597356);
+
+select * from tbcliente order by nome_cliente asc;
+select * from tbcliente;
+
+-- estrutura tbreservas
+create table tbreserva(
+id_reserva int(11) primary key auto_increment not null,
+id_cliente_reserva int(11) not null,
+data_reserva date not null,
+hora_reserva time not null,
+numero_mesa_reserva int (11) not null,
+numero_pessoas_reserva int (11) not null,
+motivo_reserva varchar(100) null,
+motivo_recusa varchar(100) null,
+valor_reserva decimal(10,2) not null,
+status_reserva varchar(20) null default 'Em análise',
+parecer_reserva varchar(100) null
+)engine=InnoDB default charset=utf8;
+
+-- Inserindo dados da tabela `tbreserva`
+
+insert into tbreserva(id_reserva, id_cliente_reserva, data_reserva, hora_reserva, numero_mesa_reserva, 
+numero_pessoas_reserva, motivo_reserva, motivo_recusa, valor_reserva, status_reserva)
+values (6,8,"2022-09-10", "20:00:00", 4, 5, "Aniversário", "" ,70.90, "Confirmada"),
+(9,1,"2022-10-09", "13:00:00", 10, 6, "Comemoração", "" ,89.90, default);
+
+select * from tbreserva;
+
 -- estrutura da tabela tbtipos
 
 create table tbtipos(
@@ -147,4 +194,24 @@ from tbprodutos p
 join tbtipos t 
 where p.id_tipo_produto = t.id_tipo;
 
+select * from vw_tbprodutos order by descri_produto asc;
+
+create view vw_tbreserva as
+select r.id_reserva,
+		c.id_cliente,
+        r.data_reserva,
+        r.hora_reserva,
+        r.numero_mesa_reserva,
+        r.numero_pessoas_reserva,
+        r.motivo_reserva,
+        r.motivo_recusa,
+        r.valor_reserva,
+        r.status_reserva,
+        r.parecer_reserva
+	from tbreserva r
+    join tbcliente c
+    where r.id_reserva = c.id_cliente;
+        
+	
+select * from vw_tbreserva order by numero_mesa_reserva asc;
 commit;

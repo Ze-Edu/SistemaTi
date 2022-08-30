@@ -10,7 +10,7 @@
 </head>
 <body>
     <a href="cadastro_regra_reserva.php">
-    <input type="button" value="RESERVAR" class="btn btn-danger btn-block">
+    <input type="button" value="RESERVAR" class="btn btn-danger btn-block" style="text-decoration: none;">
     </a>
 </body>
 </html>
