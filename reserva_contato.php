@@ -1,4 +1,25 @@
+<?php
+// incluindo o sistema de autenticação
+include('acesso_com.php');
 
+//importando constante de sistema(para nome restaurante)
+include('../config.php');
+
+//Incluindo o Arquivo de conexão
+include('../connections/conn.php');
+
+//Buscando o nome do nível
+$consulta = "select * from tbcliente";
+
+// Buscar a lista completa de usuários
+$lista = $conn->query($consulta);
+
+//Separar usuarios por linha
+$linha = $lista->fetch_assoc();
+
+//Contar numero de linhas da lista
+$totalLinhas = $lista->num_rows;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,7 +42,7 @@
     <main class="container">
         <section>
             <div class="jumbotron alert-success text-center">
-                <h1 class="text-alert-success">Agradecemos o Contato</h1>
+                <h1 class="text-alert-success">Cliente receberá mensagem em breve</h1>
                 <?php
 
                 include('./PHP-maler/src/PHPMailer.php');
@@ -30,9 +51,9 @@
                 $mail = new PHPMailer(true);
                 $mail->CharSet="UTF-8";
                 try {
-                    $assunto = $_POST['nome_contato'];
-                    $email = $_POST['email_contato'];
-                    $mensagem = $_POST['mensagem_contato'];
+                    $assunto = $linha['nome_cliente'];
+                    $email = $linha['email_cliente'];
+                    $mensagem = $linha['mensagem_contato'];
 
                     // Configurações do servidor
                     $mail->isSMTP();        //Devine o uso de SMTP no envio

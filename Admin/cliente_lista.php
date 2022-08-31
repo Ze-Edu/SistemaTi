@@ -6,10 +6,10 @@ include ('../config.php');
 include('acesso_com.php');
 
 //Incluindo o Arquivo de conexão
-include('./connections/conn.php');
+include('../connections/conn.php');
 
 //Buscando o nome do nível
-$consulta = "select * from tbcliente order by nome_cliente asc";
+$consulta = "select * from tbcliente";
 
 // Buscar a lista completa de usuários
 $lista = $conn->query($consulta);
@@ -60,7 +60,7 @@ $totalLinhas = $lista->num_rows;
                         <td><?php echo $linha['telefone_cliente'];?></td>
                         
                         <td>
-                        <a href="email_reserva.php?id_reserva=<?php echo $linha['id_cliente']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
+                        <a href="email_reserva.php?id_cliente=<?php echo $linha['id_cliente'];?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
                                 <span class="hidden-xs">Enviar Parecer</span>
                                 <br>
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
