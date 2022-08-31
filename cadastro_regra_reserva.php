@@ -1,18 +1,18 @@
 <?php
-//Variaveis de ambiente
-include('./config.php');
-//Conexão com banco
+
+include('./Admin/acesso_com.php');
 include('./connections/conn.php');
+include('./config.php');
+
 
 if($_POST){
-        $id_cliente = $_POST['id_cliente'];
         $nome_cliente = $_POST['nome_cliente'];
         $cpf_cliente = $_POST['cpf_cliente'];        
         $email_cliente = $_POST['email_cliente'];
         $telefone_cliente = $_POST['telefone_cliente'];       
 
-        $campos_insert = "id_cliente,nome_cliente,cpf_cliente,email_cliente,telefone_cliente";
-        $values = "$id_cliente,$nome_cliente,'$cpf_cliente','$email_cliente','$telefone_cliente'";
+        $campos_insert = "nome_cliente,cpf_cliente,email_cliente,telefone_cliente";
+        $values = "'$nome_cliente','$cpf_cliente','$email_cliente',$telefone_cliente";
         
         $query = "insert into tbcliente ($campos_insert) values ($values);";
         $resultado = $conn->query($query);
@@ -24,13 +24,12 @@ if($_POST){
    if(mysqli_insert_id($conn)){
         header("location:informe_reserva.php");
     }else{
-        header("location:informe_reserva.php");
+        var_dump($query);
     } 
 }
 
-
 //Chave estrangeira tipo
-$query_cli = "select * from tbcliente order by nome_cliente asc";
+$query_cli = "select * from tbcliente";
 $lista_fk = $conn->query($query_cli);
 $linha_fk = $lista_fk->fetch_assoc();
 

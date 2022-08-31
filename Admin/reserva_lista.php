@@ -9,7 +9,7 @@ include('acesso_com.php');
 include('../connections/conn.php');
 
 //Buscando TBRESERVA
-$consulta = "select * from vw_tbreserva order by numero_mesa_reserva asc";
+$consulta = "select * from vw_tbreserva";
 
 // Buscar a lista completa de usuários
 $lista = $conn->query($consulta);
@@ -41,11 +41,13 @@ $totalLinhas = $lista->num_rows;
             <!--thead>th*8-->
             <thead>                
                 <th>ID</th>
+                <th>ID Cliente</th>
                 <th>Data</th>
                 <th>Hora</th>
                 <th>Número da mesa</th>
                 <th>Número de pessoas</th>
                 <th>Motivo reserva</th>
+                <th>Motivo recusa</th>
                 <th>Valor Reserva</th>
                 <th>status reserva</th>
                 <th>Parecer</th>             
@@ -56,24 +58,26 @@ $totalLinhas = $lista->num_rows;
                 <?php do { ?>
                     <tr style="background-color: rgba(0,0,0,0.2);">
                         <!-- Linha da tabela -->
-                        <td><?php echo $linha['id_reserva']; ?></td>                       
+                        <td><?php echo $linha['id_reserva']; ?></td> 
+                        <td><?php echo $linha['id_cliente_reserva'];?></td>                      
                         <td><?php echo $linha['data_reserva'];?></span></td>
                         <td><?php echo $linha['hora_reserva']; ?></td> 
                         <td><?php echo $linha['numero_mesa_reserva'];?></td>
                         <td><?php echo $linha['numero_pessoas_reserva'];?></td>
                         <td><?php echo $linha['motivo_reserva'];?></td>
+                        <td><?php echo $linha['motivo_recusa'];?></td>
                         <td><?php echo $linha['valor_reserva'];?></td>
                         <td><?php echo $linha['status_reserva'];?></td>
                         <td><?php echo $linha['parecer_reserva'];?></td>
                         <td>
-                            <a href="email_reserva.php?id_reserva=<?php echo $linha['id_reserva']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
+                            <a href="email_reserva.php?id_cliente_reserva=<?php echo $linha['id_cliente_reserva']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
                                 <span class="hidden-xs">Enviar Parecer</span>
                                 <br>
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             </a>
                             <button class="btn btn-danger largButton btn-xs delete" 
                             role="button" 
-                            data-nome="<?php echo $linha['id_cliente'];?>" 
+                            data-nome="<?php echo $linha['id_cliente_reserva'];?>" 
                             data-id="<?php echo $linha['id_reserva'];?>" id="btn-reserva-excluir">
                  
                             <span class="hidden-xs">Excluir</span>

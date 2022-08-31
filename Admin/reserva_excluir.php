@@ -11,7 +11,7 @@ $id_reserva = $_GET["id_reserva"];
 //$query = "delete from tbreserva where id_reserva = $id_reserva;";
 
 //removendo usando método de acumular (vai que precisa outra hora!)
-$query = "update tbreserva set deletado = default where id_reserva = $id_RESERVA;";
+$query = "update tbreserva set deletado = default where id_reserva = $id_reserva;";
 
 
 $resultado = $conn->query($query);

@@ -1,34 +1,11 @@
-<?php
-// incluindo o sistema de autenticação
-include('acesso_com.php');
-
-//importando constante de sistema(para nome restaurante)
-include('../config.php');
-
-//Incluindo o Arquivo de conexão
-include('../connections/conn.php');
-
-//Buscando o nome do nível
-$consulta = "select * from tbcliente";
-
-// Buscar a lista completa de usuários
-$lista = $conn->query($consulta);
-
-//Separar usuarios por linha
-$linha = $lista->fetch_assoc();
-
-//Contar numero de linhas da lista
-$totalLinhas = $lista->num_rows;
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Após 15 segundo a página será redirecionada para index.php-->
     <meta http-equiv="refresh" content="10;URL=index.php">
-    <title>Verificação de contato</title>
+    <title>conf/neg para cliente</title>
     <link rel="stylesheet" href="./css/meu_estilo.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css" type="text/css">
 </head>
@@ -51,9 +28,9 @@ $totalLinhas = $lista->num_rows;
                 $mail = new PHPMailer(true);
                 $mail->CharSet="UTF-8";
                 try {
-                    $assunto = $linha['nome_cliente'];
-                    $email = $linha['email_cliente'];
-                    $mensagem = $linha['mensagem_contato'];
+                    $assunto = $_POST['nome_contato'];
+                    $email = $_POST['email_contato'];
+                    $mensagem = $_POST['mensagem_contato'];
 
                     // Configurações do servidor
                     $mail->isSMTP();        //Devine o uso de SMTP no envio

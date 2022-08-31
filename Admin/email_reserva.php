@@ -1,25 +1,3 @@
-<?php
-// incluindo o sistema de autenticação
-include('acesso_com.php');
-
-//importando constante de sistema(para nome restaurante)
-include('../config.php');
-
-//Incluindo o Arquivo de conexão
-include('../connections/conn.php');
-
-//Buscando o nome do nível
-$consulta = "select * from tbcliente";
-
-// Buscar a lista completa de usuários
-$lista = $conn->query($consulta);
-
-//Separar usuarios por linha
-$linha = $lista->fetch_assoc();
-
-//Contar numero de linhas da lista
-$totalLinhas = $lista->num_rows;
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,7 +11,7 @@ $totalLinhas = $lista->num_rows;
     <?php include('menu_adm.php');?>
     <main class="container">
     <h3 class="breadcrumb text-danger">
-                    <a href="cliente_lista.php">
+                    <a href="reserva_lista.php">
                         <button class="btn btn-danger">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
@@ -48,9 +26,9 @@ $totalLinhas = $lista->num_rows;
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         </span>
                         <input type="text" 
-                            name="nome_cliente" 
-                            id="nome_cliente" 
-                            placeholder="Digite seu nome"
+                            name="nome_contato" 
+                            id="nome_contato" 
+                            placeholder="Digite o nome do cliente"
                             aria-describedby="basic-addon1"
                             required
                             class="form-control">
@@ -62,11 +40,11 @@ $totalLinhas = $lista->num_rows;
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             </span>
                             <input type="text" 
-                                name="email_cliente" 
-                                id="email_cliente" 
-                                value="<?php echo $linha['email_cliente'];?>"
+                                name="email_contato" 
+                                id="email_contato" 
+                                placeholder="Email Cliente"
                                 aria-describedby="basic-addon2"
-                                disabled
+                                required
                                 class="form-control">
                         </span>
                 </p>
@@ -78,7 +56,7 @@ $totalLinhas = $lista->num_rows;
                             <textarea type="text" 
                                 name="mensagem_contato" 
                                 id="mensagem_contato" 
-                                placeholder="Digite seu comentario  / Dúvidas"
+                                placeholder="Digite o parecer"
                                 aria-describedby="basic-addon3" 
                                 required
                                 class="form-control"

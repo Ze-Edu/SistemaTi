@@ -37,15 +37,18 @@ $totalLinhas = $lista->num_rows;
 
     <main class="container">
         <h1 class="breadcrump alert-info glyphicon glyphicon-user"> Lista de Clientes </h1>
+        
         <table class="table table-condensed table-hover">
+            
             <!--thead>th*8-->
             <thead>                
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Cpf</th>
                 <th>E-mail</th>
-                <th>Telefone</th>                  
+                <th>Telefone</th>               
             </thead> <!-- Final linha de cabeçalho da tabela -->
+            
             <!-- tboby>tr>td*8 -->
             <tboby>
                 <!-- Corpo da tabela -->
@@ -53,19 +56,13 @@ $totalLinhas = $lista->num_rows;
                 <?php do { ?>
                     <tr>
                         <!-- Linha da tabela -->
-                        <td><?php echo $linha['id_cliente']; ?></td>                       
+                        <td><?php echo $linha['id_cliente']; ?></td>                  
                         <td><?php echo $linha['nome_cliente'];?></td>                                              
                         <td><?php echo $linha['cpf_cliente'];?></td>
                         <td><?php echo $linha['email_cliente'];?></td>
                         <td><?php echo $linha['telefone_cliente'];?></td>
                         
                         <td>
-                        <a href="email_reserva.php?id_cliente=<?php echo $linha['id_cliente'];?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
-                                <span class="hidden-xs">Enviar Parecer</span>
-                                <br>
-                                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            </a>
-                   
                             <button class="btn btn-danger largButton btn-xs delete" 
                             role="button" 
                             data-nome="<?php echo $linha['nome_cliente'];?>" 
@@ -79,6 +76,11 @@ $totalLinhas = $lista->num_rows;
                 <?php } while ($linha = $lista->fetch_assoc()); ?>
             </tboby> <!-- Final do corpo da tabela -->
         </table>
+        <a href="reserva_lista.php" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar" aria-selected="true"> 
+            <span class="hidden-xs">Ver reservas</span>
+            <br>
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        </a>
 
     </main>
     <!-- Inicio do modal -->

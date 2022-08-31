@@ -8,19 +8,20 @@ include('./connections/conn.php');
 
 
 if($_POST){
-
-        $id_reserva = $_POST['id_reserva'];
+        $id_cliente_reserva = ['id_cliente_reserva'];
         $data_reserva = $_POST['data_reserva'];        
         $hora_reserva = $_POST['hora_reserva'];
         $numero_pessoas_reserva = $_POST['numero_pessoas_reserva'];
         $motivo_reserva = $_POST['motivo_reserva'];
 
 
-        $campos_insert = "id_reserva,data_reserva,hora_reserva,numero_pessoas_reserva,motivo_reserva";
-        $values = "$id_reserva,'$data_reserva','$hora_reserva','$numero_pessoas_reserva','$motivo_reserva'";
+        $campos_insert = "data_reserva,hora_reserva,numero_pessoas_reserva,motivo_reserva";
+        $values = "$data_reserva,'$hora_reserva',$numero_pessoas_reserva,'$motivo_reserva'";
         
         $query = "insert into tbreserva ($campos_insert) values ($values);";
         $resultado = $conn->query($query);
+
+        var_dump($query);
 
      // var_dump($$query);
 
@@ -28,7 +29,8 @@ if($_POST){
    if(mysqli_insert_id($conn)){
         header("location:sucesso.php");
     }else{
-        header("location:sucesso.php");
+        // header("location:erro_reserva.php");
+        var_dump($query);
     }
 }
 
@@ -66,7 +68,7 @@ $linha_fk = $lista_fk->fetch_assoc();
                     <div class="alert alert-danger" role="alert">
                         <form action="informe_reserva.php" method="post" id="form_informe_reserva" name="form_informe_reserva" enctype="multipart/form-data">
                             <!--Inserir o campo id_reserva oculto para uso no filtro -->
-                            <input type="hidden" name="id_reserva" id="id_reserva">
+                            <input type="hidden" name="id_cliente_reserva" id="id_cliente_reserva">
                             <!-- label data -->
                             <label for="data_reserva">Data Reserva:</label>
                             <div class="input-group">
