@@ -70,15 +70,15 @@ $totalLinhas = $lista->num_rows;
                         <td><?php echo $linha['status_reserva'];?></td>
                         <td><?php echo $linha['parecer_reserva'];?></td>
                         <td>
-                            <a href="email_reserva.php?id_cliente_reserva=<?php echo $linha['id_cliente_reserva']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
+                            <a href="email_reserva.php?id_cliente_reserva=<?php echo $linha['id_reserva']; ?>" class="btn btn-info btn-block btn-xs" id="btn-reserva-enviar">
                                 <span class="hidden-xs">Enviar Parecer</span>
                                 <br>
                                 <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                             </a>
                             <button class="btn btn-danger largButton btn-xs delete" 
                             role="button" 
-                            data-nome="<?php echo $linha['id_cliente_reserva'];?>" 
-                            data-id="<?php echo $linha['id_reserva'];?>" id="btn-reserva-excluir">
+                            data-nome="<?php echo $linha['id_reserva'];?>" 
+                            data-id="<?php echo $linha['id_cliente_reserva'];?>" id="btn-reserva-excluir">
                  
                             <span class="hidden-xs">Excluir</span>
                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

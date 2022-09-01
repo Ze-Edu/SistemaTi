@@ -1,8 +1,7 @@
 <?php
 
-include('./Admin/acesso_com.php');
 include('./connections/conn.php');
-include('./config.php');
+include('config.php');
 
 
 if($_POST){

@@ -1,6 +1,6 @@
 <?php 
 //incluindo o sistema de autenticação
-//include("acesso_com.php");
+include("acesso_com.php");
 
 //incluindo conexão com o banco de dados
 include("../connections/conn.php");

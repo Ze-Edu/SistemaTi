@@ -1,3 +1,8 @@
+<?php 
+
+include('../connections/conn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

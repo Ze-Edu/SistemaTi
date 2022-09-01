@@ -51,6 +51,8 @@ values (default,'jose', 36985245863, 'jose@gmail.com', 34587356825),
 select * from tbcliente order by nome_cliente asc;
 select * from tbcliente;
 
+select * from tbreserva;
+
 -- estrutura tbreservas
 create table tbreserva(
 id_reserva int(11) primary key auto_increment not null,
@@ -70,8 +72,7 @@ parecer_reserva varchar(100) null
 
 insert into tbreserva(id_reserva, id_cliente_reserva, data_reserva, hora_reserva, numero_mesa_reserva, 
 numero_pessoas_reserva, motivo_reserva, motivo_recusa, valor_reserva, status_reserva)
-values (6,8,"2022-09-10", "20:00:00", 4, 5, "Aniversário", "" ,70.90, "Confirmada"),
-(9,1,"2022-10-09", "13:00:00", 10, 6, "Comemoração", "" ,89.90, default);
+values(5,12,"2022-12-12", "19:00:00", 14, 5, "Comemoração", "" ,102.90, default);
 
 select * from tbreserva;
 
@@ -198,7 +199,7 @@ select * from vw_tbprodutos order by descri_produto asc;
 
 create view vw_tbreserva as
 select r.id_reserva,
-		c.id_cliente,
+		r.id_cliente_reserva,
         r.data_reserva,
         r.hora_reserva,
         r.numero_mesa_reserva,
@@ -208,10 +209,8 @@ select r.id_reserva,
         r.valor_reserva,
         r.status_reserva,
         r.parecer_reserva
-	from tbreserva r
-    join tbcliente c
-    where r.id_reserva = c.id_cliente;
+	from tbreserva r;
         
 	
-select * from vw_tbreserva order by numero_mesa_reserva asc;
+select * from vw_tbreserva;
 commit;
